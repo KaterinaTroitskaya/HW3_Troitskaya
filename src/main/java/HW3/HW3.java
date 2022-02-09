@@ -16,6 +16,9 @@ public class HW3 {
         int [] arrForTask3 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         smallNumbersDoubler(arrForTask3);
         out.println(Arrays.toString(arrForTask3));
+        int [][] squareTask4 = new int[5][5];
+        setDiagonal(squareTask4);
+        int[] arrForTask5 = crateAnArray(8,3);
 
     }
     //region Task1
@@ -47,6 +50,31 @@ public class HW3 {
         }
     }
     //endregion
-
+    //region Task4
+    public static void setDiagonal(int[][]square){
+        out.println("Task 4: ");
+        for (int i=0; i<square.length; i++){
+            for (int j=0; j<square[i].length; j++){
+                if (i==j) {
+                    square[i][j] =1;
+                } else if (i==((square[i].length-1)-j)) {
+                    square[i][j] = 1;
+                } else square[i][j]=5;
+                out.print(square[i][j] +" ");
+            }
+            out.println();
+        }
+    }
+    //endregion
+    //region Task5
+    public static int[] crateAnArray (int len, int initialValue){
+        int[] createdArr = new int[len];
+        for (int i=0; i<createdArr.length; i++){
+            createdArr[i]=initialValue;
+        }
+        out.println(Arrays.toString(createdArr));
+        return createdArr;
+    }
+    //endregion
 
 }
