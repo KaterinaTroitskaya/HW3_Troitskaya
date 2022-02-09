@@ -19,6 +19,8 @@ public class HW3 {
         int [][] squareTask4 = new int[5][5];
         setDiagonal(squareTask4);
         int[] arrForTask5 = crateAnArray(8,3);
+        findMinAndMax(arrForTask3);
+        isItLucky(arrForTask3);
 
     }
     //region Task1
@@ -74,6 +76,44 @@ public class HW3 {
         }
         out.println(Arrays.toString(createdArr));
         return createdArr;
+    }
+    //endregion
+    //region Task6
+    public static void findMinAndMax(int[] arr){
+        int min= arr[0];
+        int max= arr[0];
+        for (int i=1; i<arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+        }
+        for (int j=1; j<arr.length; j++) {
+            if (max<arr[j]){
+                max = arr[j];
+            }
+        }
+
+        out.println("Task 6: Минимальным числом в массиве "+Arrays.toString(arr) +" является "+min);
+        out.println("Task 6: Максимальным числом в массиве "+Arrays.toString(arr) +" является "+max);
+    }
+    //endregion
+    //region Task7
+    public static boolean isItLucky(int[]arr){
+        boolean lucky = false;
+        int right = 0;
+        int left = arr[0];
+        for (int r=1; r<arr.length; r++) {
+            right = right + arr[r];
+        }
+        for (int l=1; l<(arr.length-1); l++) {
+            if (left == right) {
+                lucky = true;
+            } else {
+                left = left + arr[l];
+                right = right - arr[l];
+            }
+        }
+        return lucky;
     }
     //endregion
 
